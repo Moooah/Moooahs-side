@@ -1,189 +1,155 @@
-/* these are the main colors and header image
-   replace them with anything you want! */
+/* A soft purple/pink palette that keeps the original playful style. */
 :root {
     --header-bg: url('images/header.png');
     --accent-color: #633aac;
-    --link-color: #9f4fb1;
-    --button-color: #E5BDF9;
-    --bg-color: #FFF3E8;
-    --bg-color2: #FFE8FA;
+    --link-color: #8b3f9d;
+    --button-color: #e5bdf9;
+    --bg-color: #fff9f2;
+    --bg-color2: #f6e8fb;
     --text-color: #372558;
-    --favorite-color: #CAEC8A;
+    --favorite-color: #caec8a;
+    --shadow: 0 12px 30px rgba(99, 58, 172, .16);
 }
-/* you can get hex codes from sites like this:
-   https://palettes.shecodes.io/
-   i just looked up "css color templates" to find that link! */
 
-/* this applies to all the content */
-* {
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+    background: linear-gradient(135deg, var(--bg-color2), #fff3e8 70%);
     color: var(--text-color);
-/* change the font here, it's set up to all use the same one */
+    margin: 0;
+    min-height: 100vh;
     font-family: monospace;
+    line-height: 1.5;
 }
-/* this is for when you select text on the page */
+
 ::selection {
     background: var(--accent-color);
     color: var(--bg-color);
 }
 
-body {
-    background-color: var(--bg-color2);
-    margin: 0;
-}
-/* i think having better line spacing helps text to be more readable, but you can remove it if you want */
-p {line-height: 1.5em;}
+p { line-height: 1.6; }
 
-.yui {
-    background-color: var(--favorite-color);
+.yui, .kyoko {
     border-radius: .4em;
     padding: .2em .5em;
-    font-size: 2em;
     font-weight: bold;
 }
 
-.kyoko {
-    background-color: var(--button-color);
-    border-radius: .4em;
-    padding: .2em .5em;
-    font-size: 1.5em;
-    font-weight: bold;
-}
+.yui { background-color: var(--favorite-color); font-size: 2em; }
+.kyoko { background-color: var(--button-color); font-size: 1.5em; }
 
 header {
-/* you can add the image url in :root (at the top) if you want */
-    background: var(--header-bg);
-    background-size: 100%;
-    background-position: center;
-/* change the minimum height if you want it to take up more/less space */
+    background: var(--header-bg) center / cover no-repeat;
+    display: flex;
+    align-items: flex-end;
     max-width: 960px;
-    min-height: 400px;
-    margin: 0 auto;
-    padding: 0 1em;
-/* i have a default border-radius set, but i didn't want rounded corners on this element */
-    border-radius: 1em;
-    box-shadow: var(--button-color) 8px 8px 20px;
+    min-height: 360px;
+    margin: 1rem auto 0;
+    padding: 1rem;
+    border-radius: 1rem;
+    box-shadow: var(--shadow);
+    overflow: hidden;
 }
 
-/* this is your site title displayed at the top of the page */
 header h1 {
+    width: 100%;
+    margin: 0;
     padding: .5em;
     border-radius: .3em;
-    max-width: 900px;
-    font-size: 4em;
-/* you can change the text-align to center or right if you want it placed differently */
-    text-align: right;
     color: var(--bg-color);
+    font-size: clamp(2rem, 7vw, 4em);
+    line-height: 1.1;
+    text-align: right;
     text-shadow: var(--accent-color) 4px 4px .5em;
 }
 
-nav {
-    /*padding: 1em;*/
-    margin-top: 2em;
-    font-weight: bold;
-}
+nav { margin: 1.5rem auto; }
 
 nav > ul {
-    max-width: 960px;
-    margin: auto;
-    line-height: 3rem;
-/* this stuff makes it wrap around on mobile */
     display: flex;
     flex-wrap: wrap;
-    flex-direction: row;
-/* this line takes away the dot in front of the list items */
-    list-style-type: none;
-/* list items have default padding but we don't need it for these */
-    padding-left: 0;
-/* and this spaces out the buttons so they're not touching */
-    justify-content: space-evenly;
+    justify-content: center;
+    gap: .75rem;
+    max-width: 960px;
+    margin: auto;
+    padding: 0 1rem;
+    list-style: none;
 }
-nav li {
-    text-align: center;
-}
+
 nav li > a {
+    display: inline-block;
     background-color: var(--button-color);
-    padding: .5em 3em;
-    box-shadow: var(--bg-color2) 0 0 6px;
-/* this takes away the link underline */
+    padding: .55em 1.5em;
+    border-radius: .5em;
+    box-shadow: 0 0 6px var(--bg-color2);
     text-decoration: none;
 }
-nav li > a:visited {
-    color: var(--link-color);
-}
-nav li > a:hover {
+
+nav li > a:visited { color: var(--link-color); }
+nav li > a:hover, nav li > a:focus-visible {
     background-color: var(--favorite-color);
-    box-shadow: var(--bg-color) 0 0 6px;
     color: var(--text-color);
+    transform: translateY(-2px);
 }
 
-#biggerhover {
-        transition: transform 0.3s ease;
-    }
-
-#biggerhover:hover {
-        transform: scale(1.1) rotate(10deg);
-    }
+#biggerhover { transition: transform .3s ease; }
+#biggerhover:hover { transform: scale(1.1) rotate(10deg); }
 
 .tnbox {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 5px;
-  justify-content: center;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px;
 }
 
 .tn {
-  border: 1px solid #ddd; /* Gray border */
-  border-radius: 4px;  /* Rounded border */
-  padding: 5px; /* Some padding */
-  width: 120px; /* Set a small width */
-  height: 120px;
-  object-fit: cover;
+    width: 120px;
+    height: 120px;
+    padding: 5px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    object-fit: cover;
+    transition: transform .2s ease, box-shadow .2s ease;
 }
 
-.tn:hover {
-  box-shadow: 0 0 2px 1px rgba(0, 140, 186, 0.5);
-}
+.tn:hover { box-shadow: 0 0 0 3px rgba(0, 140, 186, .25); transform: translateY(-3px); }
 
 a {
     color: var(--link-color);
     border-radius: .5em;
-    text-shadow: var(--bg-color) 1px 1px 2px;
     font-weight: bold;
-    transition: color 400ms ease-out, background-color 400ms ease-out, box-shadow 400ms ease-out;
-}
-a:visited {
-    color: var(--text-color);
-}
-a:hover {
-    color: var(--link-color);
+    text-shadow: var(--bg-color) 1px 1px 2px;
+    transition: color .25s ease, background-color .25s ease, box-shadow .25s ease, transform .25s ease;
 }
 
-/* you can change this to anything you want :) */
+a:visited { color: var(--text-color); }
+a:hover, a:focus-visible { color: var(--link-color); }
+
+a:focus-visible { outline: 3px solid var(--accent-color); outline-offset: 3px; }
+
 ul { list-style-type: "❤︎ "; }
 
 #sidebar {
+    flex: 0 1 280px;
     background: var(--bg-color);
-    min-width: 248px;
-    max-width: 248px;
     margin: 1em;
     padding: 1em;
     border: 2px dotted var(--link-color);
-    box-shadow: var(--button-color) 8px 8px 20px;
-    border-radius: 2em;
+    border-radius: 1.25em;
+    box-shadow: var(--shadow);
 }
 
-#avatar {
-    margin: .5em auto;
-/* image size is 160px so i made its container a little bigger to fit the borders */
-    max-width: 164px;
-    max-height: 164px;
-    border-radius: 8em;
-}
+#avatar { margin: .5em auto; max-width: 164px; }
 #avatar img {
+    display: block;
+    width: 160px;
+    max-width: 100%;
+    margin: auto;
     background: var(--bg-color2);
     border: 2px solid var(--button-color);
-    max-width: 160px;
-    border-radius: 8em;
+    border-radius: 50%;
 }
 
 #bio {
@@ -192,100 +158,53 @@ ul { list-style-type: "❤︎ "; }
     border: 1px solid var(--button-color);
     border-radius: 1em;
 }
+
 #bio p { margin: 1em; }
 
 #content {
     display: flex;
+    align-items: flex-start;
     max-width: 960px;
     margin: auto;
 }
 
 main {
+    flex: 1 1 600px;
+    min-width: 0;
     background-color: var(--bg-color);
+    margin: 1em;
     padding: 1em 2em;
-    margin: 1em auto;
-    max-width: 600px;
-    min-width: 600px;
     border: 2px dotted var(--link-color);
-    box-shadow: var(--button-color) 8px 8px 20px;
-    border-radius: 2em;
+    border-radius: 1.25em;
+    box-shadow: var(--shadow);
 }
 
-main > h1,
-main > h2,
-main > h3 {
+main > h1, main > h2, main > h3 {
     background-color: var(--favorite-color);
-    border-radius: .4em;
+    margin-top: 1em;
     padding: .2em .5em;
+    border-radius: .4em;
 }
 
-main img {
-  max-width: 100%;
-  height: auto;
-  display: block;
-  margin: 0 auto;
-}
-
-iframe {
-  max-width: 90%;
-  width: 90%;
-}
-
-/* a class for centering text and images */
+main img { display: block; max-width: 100%; height: auto; margin: 0 auto; }
+iframe { width: 90%; max-width: 90%; }
 .center { text-align: center; }
-/* made this a class so i can change it to be centered on mobile */
 .img-right { float: right; }
 
-footer {
-    text-align: center;
-    font-size: small;
-    margin: 1em auto;
-    max-width: 960px;
+footer { max-width: 960px; margin: 1em auto; padding: 1em; text-align: center; font-size: small; }
+
+@media only screen and (max-width: 800px) {
+    header { min-height: 220px; margin: 1em; }
+    #content { flex-wrap: wrap; }
+    #sidebar, main { flex-basis: 100%; margin: .75em 1em; }
+    #sidebar { display: flex; flex-wrap: wrap; justify-content: center; align-items: center; }
+    #avatar { margin: 0 1em; }
+    #bio { width: min(100%, 360px); }
+    #sidebar ul { display: flex; flex-wrap: wrap; margin: 0 1em; line-height: 2em; }
+    #sidebar li { margin: .3em 1em; }
+    .img-right { float: none; text-align: center; }
 }
 
-/* these are the mobile styles! */
-@media only screen and (max-width: 800px) {
-    #content {
-        flex-wrap: wrap;
-    }
-    #sidebar {
-        width: 100%;
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        align-items: center;
-        min-width: 0;
-        max-width: none;
-    }
-    header {
-        min-height: 160px;
-        margin: 0 1em;
-    }
-    header > h1 { 
-        font-size: 3em;
-        margin: .4em;
-    }
-    #avatar {margin: 0 1em;}
-    #bio {width: 50%;}
-    main {
-        margin: 0 1em;
-        min-width: auto;
-    }
-    #sidebar ul {   
-        margin: 0 1em;
-        display: flex;
-        flex-wrap: wrap;
-        line-height: 2em;
-    }
-    #sidebar li {
-        padding-left: 0;
-        margin: .3em 1em;
-    }
-    .img-right {
-        float: none;
-        text-align: center;
-    }
-    footer {
-        margin: 1em;
-    }
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after { scroll-behavior: auto !important; transition-duration: .01ms !important; }
 }
