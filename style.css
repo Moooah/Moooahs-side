@@ -62,6 +62,19 @@ header {
 /* i have a default border-radius set, but i didn't want rounded corners on this element */
     border-radius: 1em;
     box-shadow: var(--button-color) 8px 8px 20px;
+
+    /* Sætter meme og h1 på linje og centrerer dem vertikalt */
+    display: flex;
+    align-items: center;
+    justify-content: space-between; 
+}
+
+/* Styrer størrelsen på dit meme i headeren */
+.header-meme {
+    width: 130px;
+    height: auto;
+    border-radius: 12px; 
+    margin-left: 2em; 
 }
 
 /* this is your site title displayed at the top of the page */
